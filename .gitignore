@@ -1,3 +1,10 @@
 .idea
 ./venv
 terraform/provider.tf
+terraform/.terraform.lock.hcl
+terraform/.terraform.tfstate.lock.info
+terraform/terraform.tfstate
+terraform/.terraform
+terraform/textract_output.zip
+terraform/textract_response.zip
+terraform/terraform.tfstate.backup

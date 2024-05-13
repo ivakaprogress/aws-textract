@@ -31,7 +31,7 @@ def upload_to_dynamodb(json_buffer, DYNAMODB, key):
         table = dynamodb.Table(DYNAMODB)
         table.put_item(
             Item={
-                'senger': key,
+                'textract': key,
                 'data': json_buffer.getvalue()
             }
         )
