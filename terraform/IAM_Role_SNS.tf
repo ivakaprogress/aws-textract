@@ -20,7 +20,7 @@ resource "aws_iam_role" "SNS_role" {
 }
 # IAM Policies for attaching to IAM role about managing SNS
 resource "aws_iam_policy" "sns-textract" {
-  name        = "textract-sns-senger"
+  name        = "textract-sns-textract"
   description = "AWS IAM Policies for managing SNS"
   policy      = <<EOF
 {

@@ -1,9 +1,9 @@
 # Creating First Lambda - response
 resource "aws_lambda_function" "lambda_s3_handler" {
-  function_name    = "senger-response"
-  filename         = "${path.module}/senger_response.zip"
-  role             = aws_iam_role.senger-iam-role.arn
-  handler          = "senger_response.lambda_handler"
+  function_name    = "textract-response"
+  filename         = "${path.module}/textract_response.zip"
+  role             = aws_iam_role.textract-iam-role.arn
+  handler          = "textract_response.lambda_handler"
   runtime          = "python3.8"
   memory_size = 1024
   timeout = 900
@@ -17,7 +17,7 @@ resource "aws_lambda_function" "lambda_s3_handler" {
     variables = {
       OUTPUT_BUCKET_NAME = aws_s3_bucket.my_bucket.bucket
       OUTPUT_S3_PREFIX   = "textract-output"
-      SNS_TOPIC_ARN      = aws_sns_topic.senger-sns.arn
+      SNS_TOPIC_ARN      = aws_sns_topic.textract-sns.arn
       SNS_ROLE_ARN       = aws_iam_role.SNS_role.arn
     }
   }
@@ -27,7 +27,7 @@ resource "aws_lambda_function" "lambda_s3_handler" {
 data "archive_file" "lambda_1_zip_file" {
   type        = "zip"
   source_dir  = "${path.module}/lambda_response/"
-  output_path = "${path.module}/senger_response.zip"
+  output_path = "${path.module}/textract_response.zip"
 }
 
 

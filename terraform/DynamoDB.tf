@@ -1,11 +1,11 @@
-resource "aws_dynamodb_table" "senger-textract" {
-  name = "senger-textract"
+resource "aws_dynamodb_table" "textract-textract" {
+  name = "textract-textract"
   billing_mode = "PROVISIONED"
   read_capacity = 20
   write_capacity = 20
-  hash_key = "senger"
+  hash_key = "textract"
   attribute {
-    name = "senger"
+    name = "textract"
     type = "S"
   }
 }

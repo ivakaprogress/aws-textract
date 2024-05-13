@@ -1,6 +1,6 @@
-# Create IAM_ROLE for senger-response
-resource "aws_iam_role" "senger-iam-role" {
-  name = "senger-IAM-role"
+# Create IAM_ROLE for textract-response
+resource "aws_iam_role" "textract-iam-role" {
+  name = "textract-IAM-role"
 
   assume_role_policy = <<EOF
 {
@@ -19,9 +19,9 @@ resource "aws_iam_role" "senger-iam-role" {
 EOF
 }
 
-# Create policy for senger-response IAM
+# Create policy for textract-response IAM
 resource "aws_iam_policy" "textract_s3" {
-  name        = "textract-s3-senger"
+  name        = "textract-s3-textract"
   description = "AWS IAM Policies for managing Lambda role"
   policy      = <<EOF
 {
@@ -69,10 +69,10 @@ resource "aws_iam_policy" "textract_s3" {
 # Attaches IAM policies to IAM role
 resource "aws_iam_role_policy_attachment" "attach_iam_policies_to_iam_role" {
   policy_arn = aws_iam_policy.textract_s3.arn
-  role       = aws_iam_role.senger-iam-role.name
+  role       = aws_iam_role.textract-iam-role.name
 }
 
-# Create policy for senger-response IAM
+# Create policy for textract-response IAM
 resource "aws_iam_policy" "lambda_output_dynamodb" {
   name        = "lambda_output_dynamodb"
   description = "AWS IAM Policies for managing Lambda role"
@@ -85,7 +85,7 @@ resource "aws_iam_policy" "lambda_output_dynamodb" {
             "Action": [
               "dynamodb:PutItem"
             ],
-            "Resource": "arn:aws:dynamodb:*:*:table/senger-textract"
+            "Resource": "arn:aws:dynamodb:*:*:table/textract-textract"
         }
 ]
 }
@@ -95,5 +95,5 @@ resource "aws_iam_policy" "lambda_output_dynamodb" {
 # Attaches IAM policies to IAM role
 resource "aws_iam_role_policy_attachment" "attach_iam_policies_to_iam_role_output" {
   policy_arn = aws_iam_policy.lambda_output_dynamodb.arn
-  role       = aws_iam_role.senger-iam-role.name
+  role       = aws_iam_role.textract-iam-role.name
 }

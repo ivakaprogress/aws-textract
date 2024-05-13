@@ -1,6 +1,6 @@
 # Create S3 Bucket
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "senger-async-${random_string.random.result}"
+  bucket = "textract-async-${random_string.random.result}"
   force_destroy = true
 }
 # adding trigger configuration
