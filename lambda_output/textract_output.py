@@ -8,7 +8,6 @@ logger.setLevel(logging.INFO)
 
 
 def lambda_handler(event, context):
-
     try:
         DYNAMODB = os.environ["DYNAMODB"]
         logger.info(f"Destination dynamodb: {DYNAMODB}")

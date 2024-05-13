@@ -37,7 +37,6 @@ except Exception as e:
 
 
 def lambda_handler(event, context):
-
     textract = boto3.client("textract")
     try:
         if "Records" in event:

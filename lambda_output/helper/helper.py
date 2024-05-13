@@ -160,4 +160,3 @@ def process_response(
         values = list(map(itemgetter(1), final_map))
         save_json_to_dynamodb(keys, values, sign, job_id, DYNAMODB)
     logger.info("Parsing completed")
-
