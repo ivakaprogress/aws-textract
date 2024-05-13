@@ -23,7 +23,7 @@ resource "aws_lambda_function" "lambda_sns_handler" {
 
 data "archive_file" "lambda_2_zip_file" {
   type        = "zip"
-  source_dir  = "${path.module}/lambda_output/"
+  source_dir  = ".${path.module}/lambda_output/"
   output_path = "${path.module}/textract_output.zip"
 }
 

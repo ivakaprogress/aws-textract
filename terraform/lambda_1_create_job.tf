@@ -26,7 +26,7 @@ resource "aws_lambda_function" "lambda_s3_handler" {
 
 data "archive_file" "lambda_1_zip_file" {
   type        = "zip"
-  source_dir  = "${path.module}/lambda_response/"
+  source_dir  = ".${path.module}/lambda_response/"
   output_path = "${path.module}/textract_response.zip"
 }
 
